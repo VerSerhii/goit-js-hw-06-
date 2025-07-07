@@ -1,40 +1,34 @@
 'use strict';
 
-class User {
-  constructor(email) {
-    this.email = email;
-  }
 
-  getEmail() {
-    return this.email;
-  }
+const customer = {
+  username: "Mango",
+  balance: 24000,
+  discount: 0.1,
+  orders: ["Burger", "Pizza", "Salad"],
 
-  setEmail(newEmail) {
-    this.email = newEmail;
-  }
-}
+  getBalance() {
+    return this.balance;
+  },
 
-class Admin extends User {
-  static role = {
-    BASIC: "basic",
-    SUPERUSER: "superuser",
-  };
+  getDiscount() {
+    return this.discount;
+  },
 
-  constructor({ email, access }) {
-    super(email);
-    this.access = access;
-    this.blacklistedEmails = [];
-  }
+  setDiscount(value) {
+    this.discount = value;
+  },
 
-  blacklist(email) {
-    this.blacklistedEmails.push(email);
-  }
+  getOrders() {
+    return this.orders;
+  },
 
-  isBlacklisted(email) {
-    return this.blacklistedEmails.includes(email);
-  }
-}
-
+  addOrder(cost, order) {
+    const discountedCost = cost - cost * this.discount;
+    this.balance -= discountedCost;
+    this.orders.push(order);
+  },
+};
 
 
 
