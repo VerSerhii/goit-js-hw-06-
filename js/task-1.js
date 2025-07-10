@@ -29,7 +29,11 @@ const customer = {
     this.orders.push(order);
   },
 };
+   
 
-
-
+customer.setDiscount(0.15);
+console.log(customer.getDiscount()); 
+customer.addOrder(5000, "Steak");
+console.log(customer.getBalance()); 
+console.log(customer.getOrders());
   
